@@ -6,6 +6,7 @@ $yellow: #ffb228;
 body  {
   margin: 0;
   padding: 0;
+  background-color: $ketchup;
 
 }
 
@@ -38,15 +39,33 @@ ul {
   margin: 0;
 }
 
+.artist-list {
+ background-color: $dark-purple;
+ border-radius: 20px;
+ padding: 10vh 0;
+
+}
+.info {
+  width: 35vw;
+  margin: 10vw auto;
+  height: 40vw;
+  border-radius: 20px;
+  color: $yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-purple;
+}
 .artists{
   background-image: url('back.jpg');
   background-size: contain;
-  // margin: 0 auto;
-  // width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
     color: white;
   h1 {
@@ -64,11 +83,13 @@ ul {
   display: flex;
   justify-content: center;
   border: 1px solid $yellow;
-  width: 60vw;
+  width: 80vw;
+  flex-wrap: wrap;
   div {
+    width: fit-content;
     margin: 2vw;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-evenly;
   }
 }
@@ -97,6 +118,15 @@ ul {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 100%;
+    width: 4vw;
+    height: 4vw;
+  }
   img {
     width: 20vw;
   }

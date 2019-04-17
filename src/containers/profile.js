@@ -6,8 +6,7 @@ class Profile extends Component{
   state={
     user: {}
   }
-
-  componentDidMount(){
+componentDidMount(){
     let token = localStorage.token
     if(token){
       fetch('http://localhost:3000/api/v1/profile',{
