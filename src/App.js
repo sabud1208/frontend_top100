@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ArtistsContainer from './containers/artists_container'
-import { BrowserRouter as Router, Route, Switch, withRouter, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, withRouter, Link, Redirect } from 'react-router-dom'
 import Form from './components/sign_form'
 import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
 import RouterComp from './RouterComp'
 import ls from 'local-storage'
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   state={
@@ -16,7 +16,8 @@ class App extends Component {
     userLog: '',
     userPassword: '',
     favoriteArtist: [],
-    artistInfo: null
+    artistInfo: null,
+    deleted: null
 
   }
   componentDidMount(){
@@ -83,21 +84,15 @@ return fetch("http://localhost:3000/api/v1/artists", {
    }))
 }
 
-
-deleteFav =(artistObj) =>{
-  let newFav = [...this.state.favoriteArtist].filter(artist =>{
-    return artistObj.id !== artist.id
-  })
-  this.setState({favoriteArtist: newFav})
-}
-
 clickHandler = (artistObj) => {
   this.setState({artistInfo: artistObj })
 }
 
+
   render() {
+    console.log(this.state.favoriteArtist);
     return (
-      <RouterComp handleChange={this.handleUserChange} clickHandler={this.clickHandler}fav = {this.state.favoriteArtist} delete ={this.deleteFav} favoriteArtist= {this.favoriteArtist} handleSubmit={this.handleSubmit} handleUserChange={this.handleUserChange} handleUserSubmit = {this.loginSubmitHandler} user={this.state.user}/>
+      <RouterComp handleChange={this.handleUserChange} clickHandler={this.clickHandler}fav = {this.state.favoriteArtist} delete ={this.deleteFav} artistInfo= {this.state.artistInfo} favoriteArtist= {this.favoriteArtist} handleSubmit={this.handleSubmit} handleUserChange={this.handleUserChange} handleUserSubmit = {this.loginSubmitHandler} onClick = {this.onClick} user={this.state.user}/>
     );
   }
 }

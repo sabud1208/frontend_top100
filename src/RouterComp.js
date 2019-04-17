@@ -14,11 +14,10 @@ class RouterComp extends React.Component{
 
       <Navbar />
       <Switch>
-      <Route  exact path='/artists' render = { (props) => <ArtistsContainer onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
+      <Route  exact path='/artists' render = { (props) => <ArtistsContainer artistInfo= {this.props.artistInfo} onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
       <Route exact path='/userprofile' render={(props) => <Profile {...props} user= {this.props.user} fav = {this.props.fav} onClick={this.props.onClick} clickHandler={this.props.clickHandler}/> } />
        <Route exact path='/login' render={(props) => <LoginForm {...props} handleUserChange= {this.props.handleUserChange} handleUserSubmit= {this.props.handleUserSubmit} password={this.props.password}/>} />
        <Route exact path='/signup' render={(props) => < SignUp {...props} /> }/>
-
      </Switch>
    </div>)
   }

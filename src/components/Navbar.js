@@ -3,42 +3,31 @@ import { Link, withRouter } from "react-router-dom";
 import {Container, Menu} from 'semantic-ui-react'
 const Navbar = props => {
   return (
-    <ul>
-    <Container >
-  <Menu>
-  <Menu.Item>
+
+
+  <nav>
+
       <Link to="/home">
-        <li>Home</li>
+        Home
       </Link>
-      </Menu.Item>
-      <Menu.Item>
+
+
       <Link to="/userprofile">
-        <li>Profile</li>
+        Profile
       </Link>
-      </Menu.Item>
-      <Menu.Item>
+
+
       <Link to="/artists">
-        <li>Artists</li>
+        Artists
       </Link>
-      </Menu.Item>
-      <Menu.Item>
-      <Link to="/signup">
-        <li>Sign Up</li>
-      </Link>
-      </Menu.Item>
-      <Menu.Item>
+
       <Link to="/login">
-        <li>Log In</li>
+        Login
       </Link>
-      </Menu.Item>
-      <Menu.Item>
-      <Link to="/login">
-        <li>Log Out</li>
-      </Link>
-      </Menu.Item>
-     </Menu>
-    </Container>
-      </ul>
+
+    </nav>
+
+
   );
 };
 

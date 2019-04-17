@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import ArtistsList from '../components/artists_list'
+import ArtistInfo from '../components/artist_info'
 
 class ArtistsContainer extends React.Component {
   state={
@@ -17,7 +18,8 @@ class ArtistsContainer extends React.Component {
   render(){
     return( <div className="artists">
     <h3>Top 100 Artist</h3>
-    <ArtistsList allArtists ={this.state.allArtists} onClick= {this.props.onClick} user={this.props.user}/>
+    <ArtistsList allArtists ={this.state.allArtists} onClick= {this.props.onClick} user={this.props.user} clickHandler={this.props.clickHandler}/>
+    {this.props.artistInfo ?  <ArtistInfo artistInfo ={this.props.artistInfo}/> : null }
     </div>)
   }
 

@@ -4,7 +4,7 @@ import ArtistCard from './artist_card'
 class UserList extends React.Component {
 
   render(){
-  console.log(this.props.favor);
+
     let arrayOfArtists = this.props.favor.map((artist) =>{
       return <ArtistCard key={artist.id} artistObj= {artist} clickHandler={this.props.clickHandler} image={artist.image_url} onClick={this.props.onClick}/>
 
