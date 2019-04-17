@@ -19,22 +19,22 @@ class App extends Component {
     artistInfo: null
 
   }
-componentDidMount(){
-  let token = localStorage.token
-  if(token){
-    fetch('http://localhost:3000/api/v1/profile',{
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-    .then(resp => resp.json())
-    .then(userData => this.setState({user: userData.user} , ()=>{
-      localStorage.setItem('token', token)
-      this.props.history.push('/userprofile')
-    }))
+  componentDidMount(){
+    let token = localStorage.token
+    if(token){
+      fetch('http://localhost:3000/api/v1/profile',{
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(userData => this.setState({user: userData.user} , ()=>{
+        localStorage.setItem('token', token)
+        this.props.history.push('/userprofile')
+      }))
+    }
   }
-}
 
 
 handleUserChange = (e) =>{
