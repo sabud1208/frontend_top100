@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-
+import { Link, withRouter } from "react-router-dom";
 
 class UserDetail extends Component{
 
+state={
+  logout: false
+}
+onClick=(e, obj)=>{
+  console.log(obj);
+  let logout = this.state.logout = !this.state.logout
+   this.setState({logout: logout}, ()=> {
+     localStorage.clear()
+     this.props.history.push('/')
+   })
+
+
+}
 
   render(){
 
@@ -13,10 +26,11 @@ class UserDetail extends Component{
     <div>
       <h3>Name: {this.props.user.username}</h3>
       <h3>Bio: {this.props.user.bio}</h3>
-      <button >Log Out</button>
+      <button onClick={(e)=>this.onClick(e, this.props.user)}>Log Out</button>
+      <button onClick={this.props.handleEditButton}>Edit</button>
      </div>
 
 </div>)
   }
 }
-export default UserDetail;
+export default withRouter(UserDetail);

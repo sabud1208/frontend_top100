@@ -43,9 +43,9 @@ class LoginForm extends Component{
             onChange={this.changeHandler}
           />
           </Form.Field>
-          <div >
-           <Button basic color= 'purple'  type='submit'>Submit</Button>
-           </div>
+
+           <Button  basic color= 'purple'  type='submit'>Submit</Button>
+
           </Form>
         </Container>
       );

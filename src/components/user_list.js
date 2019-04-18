@@ -13,7 +13,11 @@ class UserList extends React.Component {
       return <ArtistCard index= {index + 1}key={artist.id} artistObj= {artist} image={artist.image_url} onClick={this.props.onClick} buttonB={<button onClick={() => this.props.onClick(artist)}>Delete</button>}/>
 
     })
-    return arrayOfArtists
+    return (
+      <div>
+      <h2>Favorites</h2>
+      {arrayOfArtists}<
+      /div>)
   }
 
 }

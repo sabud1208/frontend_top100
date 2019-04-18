@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import SignUp from './components/SignUp'
 import Profile from  './containers/profile'
 import Home from  './containers/home_container'
+import Log from  './containers/log'
 import Navbar from './components/Navbar'
 import LoginForm from './components/sign_form'
 import App from './App'
@@ -17,6 +18,7 @@ class RouterComp extends React.Component{
       <Navbar />
 
       <Switch>
+      <Route   exact path='/' component ={Log }/>
       <Route  path='/home' render ={ (props) => <Home {...props} /> }/>
       <Route  exact path='/artists' render = { (props) => <ArtistsContainer favoriteArtist = {this.props.favoriteArtist} artistInfoHandler ={this.props.artistInfoHandler}  onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
       <Route exact path='/userprofile' render={(props) => <Profile {...props} user= {this.props.user} fav = {this.props.fav} onClick={this.props.onClick} /> } />

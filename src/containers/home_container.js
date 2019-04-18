@@ -17,9 +17,12 @@ class Home extends Component{
   }
   render(){
     console.log(this.state.allArtists);
-    return(
-      <div>
+    return(<div>
+
+      <div className="artist-list">
+
       <HomeList allArtists= {this.state.allArtists}/>
+      </div>
       </div>
     )
   }

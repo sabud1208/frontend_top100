@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import UserDetail from '../components/user_detail'
 import UserList from '../components/user_list'
-
+import EditForm from '../components/edit_form'
 class Profile extends Component{
   state={
-    user: {}
+    user: {},
+      logout: false,
+       showEditForm: false
   }
 componentDidMount(){
     let token = localStorage.token
@@ -16,11 +18,13 @@ componentDidMount(){
         }
       })
       .then(resp => resp.json())
-      .then(userData => this.setState({user: userData.user}))
+      .then(userData => this.setState({user: userData.user}),
+        )
     }
   }
+
+
   onClick = (artistObj) => {
-  
     let token= localStorage.token
     let favorite = this.state.user.favorites.filter(favorite =>{
           return  artistObj.id !== favorite.id
@@ -43,14 +47,45 @@ componentDidMount(){
         })
         .catch(error => console.log(error))
   }
+  onClickLogout=(e, obj)=>{
+let logout = this.state.logout ? true : false
+    if(this.state.logout){
+      return  this.setState({user: null,logout: logout}) , ()=> {
+        localStorage.clear()
+    }
+  }
+}
+
+handleEditButton = () => {
+   this.setState({
+     showEditForm: !this.state.showEditForm
+   })
+ }
+
+
+ handleSubmitButtonClick = (info) => {
+   console.log(info);
+   const newUser = {
+     _id: info.id,
+     username: info.newName,
+     bio: info.newBio,
+     avatar: info.newAvatar
+}
+  this.setState({
+      showEditForm: !this.state.showEditForm,
+      user: newUser
+    })
+}
 
 
 render(){
-
+  console.log(this.state.user);
+  let user = <UserDetail user = {this.state.user}   onClickLogout= {this.onClickLogout}  handleEditButton = {this.handleEditButton}/>
+  let edit = <EditForm handleSubmitButtonClick = {this.handleSubmitButtonClick}/>
     return (
     <React.Fragment>
       <div className="profile-user-container">
-    <UserDetail user = {this.state.user}/>
+      { this.state.showEditForm ?  edit : user}
     </div>
      <div className="profile-container">
      {this.state.user.favorites ? < UserList favor= {this.state.user.favorites} user = {this.state.user}  onClick={this.onClick}/> : null}
