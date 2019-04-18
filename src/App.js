@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArtistsContainer from './containers/artists_container'
+import Home from './containers/home_container'
 import { BrowserRouter as Router, Route, Switch, withRouter, Link, Redirect } from 'react-router-dom'
 import Form from './components/sign_form'
 import Navbar from './components/Navbar'
