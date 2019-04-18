@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ArtistsContainer from './containers/artists_container'
-import ArtistInfo from './containers/artist_info'
 import { BrowserRouter as Router, Route, Switch, withRouter, Link, Redirect } from 'react-router-dom'
 import Form from './components/sign_form'
 import Navbar from './components/Navbar'
@@ -17,8 +16,8 @@ class App extends Component {
     userLog: '',
     userPassword: '',
     favoriteArtist: [],
-    artistInfo: null,
-    deleted: null
+    deleted: null,
+    artistInfo: null
 
   }
   componentDidMount(){
@@ -38,6 +37,9 @@ class App extends Component {
     }
   }
 
+artistInfoHandler =(artistObj, index) =>{
+  this.setState({artistInfo: artistObj})
+}
 
 handleUserChange = (e) =>{
     this.setState({[e.target.name]: e.target.value})
@@ -67,7 +69,7 @@ loginSubmitHandler = (e, userInfo) => {
 favoriteArtist = (artistObj) => {
 let user = this.state.user.username
 let token = localStorage.token
-console.log(artistObj.url);
+
 //   let newFav = [...this.state.favoriteArtist, artistObj]
 // this.setState({favoriteArtist: newFav})
 return fetch("http://localhost:3000/api/v1/artists", {
@@ -85,15 +87,12 @@ return fetch("http://localhost:3000/api/v1/artists", {
    }))
 }
 
-clickHandler = (artistObj) => {
-  this.setState({artistInfo: artistObj })
-}
+
 
 
   render() {
-    console.log(this.state.favoriteArtist);
     return (
-      <RouterComp handleChange={this.handleUserChange} clickHandler={this.clickHandler}fav = {this.state.favoriteArtist} delete ={this.deleteFav} artistInfo= {this.state.artistInfo} favoriteArtist= {this.favoriteArtist} handleSubmit={this.handleSubmit} handleUserChange={this.handleUserChange} handleUserSubmit = {this.loginSubmitHandler} onClick = {this.onClick} user={this.state.user}/>
+      <RouterComp artistInfoHandler = {this.artistInfoHandler} handleChange={this.handleUserChange} fav = {this.state.favoriteArtist} delete ={this.deleteFav} artistInfo= {this.state.artistInfo} favoriteArtist= {this.favoriteArtist} handleSubmit={this.handleSubmit} handleUserChange={this.handleUserChange} handleUserSubmit = {this.loginSubmitHandler} user={this.state.user}/>
     );
   }
 }

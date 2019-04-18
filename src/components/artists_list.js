@@ -7,7 +7,7 @@ state={
 }
   render(){
     let arrayOfArtists = this.props.allArtists.map((artist, index)=>{
-      return  <ArtistCard index= {index + 1} key={artist.name} clickHandler= {this.props.clickHandler}artistObj= {artist} image= {artist.image[2]["#text"]}onClick={this.props.onClick} user={this.props.user}/>
+      return  <ArtistCard index= {index + 1} key={artist.name} clickHandler= {this.props.clickHandler}  artistObj= {artist} image= {artist.image[2]["#text"]} onClick={this.props.favoriteArtist} buttonB = {<button onClick={() => this.props.favoriteArtist(artist)}>Add To Favorites</button>} user={this.props.user} button ={<button onClick={() => this.props.artistInfoHandler(artist, index)}> Artist Info</button>}/>
 
     })
     return arrayOfArtists

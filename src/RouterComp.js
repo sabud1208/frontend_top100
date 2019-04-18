@@ -5,7 +5,7 @@ import Profile from  './containers/profile'
 import Navbar from './components/Navbar'
 import LoginForm from './components/sign_form'
 import App from './App'
-import ArtistInfo from './containers/artist_info'
+import ArtistInfoContainer from './containers/artist_info_container'
 import ArtistsContainer from './containers/artists_container'
 
 class RouterComp extends React.Component{
@@ -15,11 +15,11 @@ class RouterComp extends React.Component{
 
       <Navbar />
       <Switch>
-      <Route  exact path='/artists' render = { (props) => <ArtistsContainer artistInfo= {this.props.artistInfo} onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
-      <Route exact path='/userprofile' render={(props) => <Profile {...props} user= {this.props.user} fav = {this.props.fav} onClick={this.props.onClick} clickHandler={this.props.clickHandler}/> } />
+      <Route  exact path='/artists' render = { (props) => <ArtistsContainer favoriteArtist = {this.props.favoriteArtist} artistInfoHandler ={this.props.artistInfoHandler}  onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
+      <Route exact path='/userprofile' render={(props) => <Profile {...props} user= {this.props.user} fav = {this.props.fav} onClick={this.props.onClick} /> } />
        <Route exact path='/login' render={(props) => <LoginForm {...props} handleUserChange= {this.props.handleUserChange} handleUserSubmit= {this.props.handleUserSubmit} password={this.props.password}/>} />
        <Route exact path='/signup' render={(props) => < SignUp {...props} /> }/>
-       <Route path='/:name' render = { (props) => <ArtistInfo artistInfo= {this.props.artistInfo ? this.props.artistInfo : ''} onClick = {this.props.favoriteArtist} user={this.props.user} clickHandler={this.props.clickHandler}/> } />
+       <Route  path='/:name' render = { (props) => <ArtistInfoContainer {...props} artistInfo= {this.props.artistInfo ? this.props.artistInfo : ''} artistInfoHandler={this.props.artistInfoHandler} /> } />
      </Switch>
    </div>)
   }

@@ -1,8 +1,8 @@
 import React from 'react'
 
 
+class ArtistInfoContainer extends React.Component {
 
-class ArtistInfo extends React.Component {
   render(){
     return(
   <div className= 'info'>
@@ -10,10 +10,11 @@ class ArtistInfo extends React.Component {
     <span>Plays: {this.props.artistInfo.playcount}</span>
     <span>Fans: {this.props.artistInfo.listeners}</span>
     <img src={this.props.artistInfo ? this.props.artistInfo.image[2]["#text"] : ''}/>
+
+    <a>{this.props.artistInfo.url}</a>
     </div>
   )
   }
-
 }
 
-export default ArtistInfo
+export default ArtistInfoContainer

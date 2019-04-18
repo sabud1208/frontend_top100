@@ -20,7 +20,7 @@ componentDidMount(){
     }
   }
   onClick = (artistObj) => {
-
+  
     let token= localStorage.token
     let favorite = this.state.user.favorites.filter(favorite =>{
           return  artistObj.id !== favorite.id
@@ -53,7 +53,7 @@ render(){
     <UserDetail user = {this.state.user}/>
     </div>
      <div className="profile-container">
-     {this.state.user.favorites ? < UserList favor= {this.state.user.favorites} user = {this.state.user} clickHandler={this.props.clickHandler} onClick={this.onClick}/> : null}
+     {this.state.user.favorites ? < UserList favor= {this.state.user.favorites} user = {this.state.user}  onClick={this.onClick}/> : null}
     </div>
          </React.Fragment>)
   }

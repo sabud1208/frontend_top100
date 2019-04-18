@@ -8,16 +8,13 @@ clickHandler =  () => {
   }
 
   render(){
-    return (
-    <Link to={`/${this.props.artistObj.name}`} >
-      <div className="artist-card" >
+    return (<div className="artist-card" >
         <span>{this.props.index}</span>
         <h3>{this.props.artistObj.name}</h3>
-        <img onClick={() => this.props.clickHandler(this.props.artistObj)}src={this.props.image}/>
-        <button onClick={() => this.props.onClick(this.props.artistObj)}>Button</button>
-      </div>
-    </Link>
-  )
+        <img onClick={() => this.clickHandler(this.props.artistObj)}src={this.props.image}/>
+        {this.props.buttonB}
+        <Link to= {`/${this.props.artistObj.name}`}>{this.props.button}</Link>
+      </div>)
   }
 
 }

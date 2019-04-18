@@ -1,7 +1,6 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom'
 import ArtistsList from '../components/artists_list'
-import ArtistInfo from './artist_info'
 import Input from'../components/input'
 
 class ArtistsContainer extends React.Component {
@@ -10,6 +9,7 @@ class ArtistsContainer extends React.Component {
     userInput: " "
 
   }
+
   // http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Billie%20Eilish&api_key=5888e399a697c41b22612e13ed652177&format=json
   componentDidMount(){
     fetch('http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=5888e399a697c41b22612e13ed652177&format=json')
@@ -32,16 +32,17 @@ class ArtistsContainer extends React.Component {
     }
   }
 
+
+// </div>
+//     <div>{this.props.artistInfo ?  <ArtistInfo artistInfo ={this.state.artistInfo} clickHandler={this.clickHandler}/> : null }
+// </div>
   render(){
-    console.log(this.state.userInput);
     return( <div className="artists">
     <h3>Top 100 Artist</h3>
     <Input userInput={this.state.userInput} handleOnChange={this.handleOnChange}/>
     <div className="artist-list">
-    <ArtistsList allArtists ={this.filterArray(this.state.allArtists)} onClick= {this.props.onClick} user={this.props.user} clickHandler={this.props.clickHandler}/>
-    </div>
-        <div>{this.props.artistInfo ?  <ArtistInfo artistInfo ={this.props.artistInfo}/> : null }
-    </div>
+    <ArtistsList allArtists ={this.filterArray(this.state.allArtists)} favoriteArtist = {this.props.favoriteArtist}artistInfoHandler = {this.props.artistInfoHandler} onClick= {this.onClick} user={this.props.user} clickHandler={this.props.clickHandler}/>
+   </div>
 
 </div>)
   }
