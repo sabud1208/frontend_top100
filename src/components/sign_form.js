@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Checkbox, Container, Form, Segment } from 'semantic-ui-react'
 
+
 class LoginForm extends Component{
   state = {
       username: "",
@@ -47,6 +48,7 @@ class LoginForm extends Component{
            <Button  basic color= 'purple'  type='submit'>Submit</Button>
 
           </Form>
+
         </Container>
       );
     }

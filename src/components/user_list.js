@@ -14,10 +14,13 @@ class UserList extends React.Component {
 
     })
     return (
-      <div>
-      <h2>Favorites</h2>
-      {arrayOfArtists}<
-      /div>)
+      <React.Fragment>
+        <h2>Favorites</h2>
+        <div className='fav-card'>
+        {arrayOfArtists}<
+        /div>
+      </React.Fragment>
+    )
   }
 
 }

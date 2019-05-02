@@ -19,8 +19,8 @@ class Home extends Component{
     console.log(this.state.allArtists);
     return(<div>
 
-      <div className="artist-list">
-
+      <div className="home">
+      <h1 className="top-100"> Top 100 Tracks </h1>
       <HomeList allArtists= {this.state.allArtists}/>
       </div>
       </div>

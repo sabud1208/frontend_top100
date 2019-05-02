@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Checkbox, Container, Form, Segment,Link } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Form, Segment } from 'semantic-ui-react'
+import { Link, withRouter } from "react-router-dom";
 class SignUp extends React.Component {
   state= {
     username: '',
@@ -36,7 +37,7 @@ class SignUp extends React.Component {
 
     return (
       <Container>
-      
+
       <Form onSubmit={(e) => this.handleSubmit(e, this.state) }>
 
    <Form.Field>
@@ -57,7 +58,10 @@ class SignUp extends React.Component {
      </div>
 
     </Form>
-  </Container>)
+    <Link to='/login'><button>Login</button> </Link>
+  </Container>
+
+)
   }
 }
 

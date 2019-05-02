@@ -1,16 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Gravitas+One');
+
 $light-purple: #6f0765;
 $dark-purple: #4c0045;
 $ketchup: #bd512f;
 $yellow: #ffb228;
 
-body  {
+html, body, #root  {
+  font-family: 'Gravitas One', cursive;
   margin: 0;
   padding: 0;
-  background-color: $ketchup;
+  background-color: black;
 
 }
 
+#search{
+  color: $yellow;
+  font-size: 2vw;
+}
 button {
+  font-family: 'Gravitas One', cursive;
   font-size: 1vw;
   padding: 1vw;
   margin: 2vw;
@@ -19,18 +27,19 @@ button {
 
 nav {
   display: flex;
-  background-color: $light-purple;
+  border: 1px solid $yellow;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 8vw;
+  height: 5vw;
+  padding: 2vw;
   a{
-    border: 1px solid $yellow;
     width: 15vw;
-    height: 70%;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 1px;
   }
 }
 
@@ -38,14 +47,44 @@ ul {
   list-style: none;
   margin: 0;
 }
-
+.artist-list-home {
+  padding: 4vw 0;
+  font-family: 'Gravitas One', cursive;
+  // background-color: $yellow;
+  justify-content: space-evenly;
+  .artist-card {
+    margin-bottom: 4vw;
+  }
+}
 .artist-list {
+  font-family: 'Gravitas One', cursive;
  background-color: $dark-purple;
  border-radius: 20px;
  padding: 10vh 0;
 
 }
-.info {
+.artist-card-home {
+  font-family: 'Gravitas One', cursive;
+  border: 2px solid $dark-purple;
+  padding: 2vw 0;
+  border-radius: 20px;
+  margin: 3vw 0;
+  color: $light-purple
+}
+.top-100 {
+  font-size: 3vw;
+  font-family: 'Gravitas One', cursive;
+  text-align: center;
+  margin-bottom: 2vw;
+  padding: 2vw 0;
+  color: $light-purple
+}
+.top-100-1 {
+  font-family: 'Gravitas One', cursive;
+  color: $yellow;
+}
+.info-card {
+  font-family: 'Gravitas One', cursive;
   width: 35vw;
   margin: 10vw auto;
   height: 40vw;
@@ -57,7 +96,38 @@ ul {
   align-items: center;
   background-color: $dark-purple;
 }
+
+.topnav {
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: $yellow;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.info{
+  border-color: $yellow;
+}
 .artists{
+  font-family: 'Gravitas One', cursive;
   background-image: url('back.jpg');
   background-size: contain;
   margin: 0 auto;
@@ -66,7 +136,14 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Full height */
+height: 100%;
 
+/* Create the parallax scrolling effect */
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
     color: white;
   h1 {
     font-size: 5vw;
@@ -78,9 +155,18 @@ ul {
     height: auto;
 }
 
-.profile-container {
-  margin: 0 auto;
+.fav-card {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container {
+  margin: 4vw auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   border: 1px solid $yellow;
   width: 80vw;
@@ -94,12 +180,37 @@ ul {
   }
 }
 
+.user {
+  font-family: 'Gravitas One', cursive;
+  display: flex;
+  flex-direction: column;
+}
+.user-name-bio {
+  font-family: 'Gravitas One', cursive;
+  display: flex;
+  flex-direction: column;
+  font-size: 3vw;
+
+}
 .profile-user-container {
   display: flex;
+  margin: 0 auto;
   justify-content: center;
+  align-items: center;
+  h3 {
+    font-size: 20vw;
+  }
   img {
     border-radius: 100%;
+    width: 20vw;
     margin: 3vw;
+  }
+  button {
+    background-color: $dark-purple;
+    color: white;
+    width: 15vw;
+    padding: 1vw;
+    margin: 0;
   }
 }
 
@@ -144,4 +255,56 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.log {
+  background-image:  url('YU39.gif');
+  background-position: center;
+  background-size: 45%;
+  background-repeat: repeat;
+  padding: 7vw;
+
+}
+
+.log-buttons{
+  display: flex;
+  justify-content: center;
+  background-size: auto;
+  background-size: cover;
+  background-position: 0px 0px;
+	background-repeat: repeat-x;
+      padding-bottom: 45%;
+}
+
+.home{
+  background-image: url('background.jpg');
+  /* Full height */
+height: 100%;
+
+/* Create the parallax scrolling effect */
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.app-name {
+  justify-content: center;
+  text-align: center;
+  color: $yellow;
+  font-size: 3vw;
+}
+
+.form{
+  padding-top: 4vw;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 90% 0; }
+}
+
+@keyframes background{
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
 }

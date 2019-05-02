@@ -13,22 +13,22 @@ onClick=(e, obj)=>{
      localStorage.clear()
      this.props.history.push('/')
    })
-
-
 }
 
   render(){
 
     return( <div className="user">
-    <div>
+    <div className="profile-user-container">
       <img src = {this.props.user.avatar} alt = ''/>
-    </div>
-    <div>
+      <div className="user-name-bio">
       <h3>Name: {this.props.user.username}</h3>
       <h3>Bio: {this.props.user.bio}</h3>
+      </div>
+    </div>
+    <div className="profile-user-container">
       <button onClick={(e)=>this.onClick(e, this.props.user)}>Log Out</button>
       <button onClick={this.props.handleEditButton}>Edit</button>
-     </div>
+    </div>
 
 </div>)
   }

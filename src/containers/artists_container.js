@@ -38,10 +38,10 @@ class ArtistsContainer extends React.Component {
 // </div>
   render(){
     return( <div className="artists">
-    <h3>Top 100 Artist</h3>
+    <h1 className="top-100-1">Top 100 Artist</h1>
     <Input userInput={this.state.userInput} handleOnChange={this.handleOnChange}/>
     <div className="artist-list">
-    <ArtistsList allArtists ={this.filterArray(this.state.allArtists)} favoriteArtist = {this.props.favoriteArtist}artistInfoHandler = {this.props.artistInfoHandler} onClick= {this.onClick} user={this.props.user} clickHandler={this.props.clickHandler}/>
+    {this.state.allArtists.length > 0 ? <ArtistsList allArtists ={this.filterArray(this.state.allArtists)} favoriteArtist = {this.props.favoriteArtist}artistInfoHandler = {this.props.artistInfoHandler} onClick= {this.onClick} user={this.props.user} clickHandler={this.props.clickHandler}/> : <h1>Loading</h1>}
    </div>
 
 </div>)

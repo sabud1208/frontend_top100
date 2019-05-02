@@ -6,7 +6,8 @@ class Profile extends Component{
   state={
     user: {},
       logout: false,
-       showEditForm: false
+       showEditForm: false,
+       edit: null
   }
 componentDidMount(){
     let token = localStorage.token
@@ -64,29 +65,31 @@ handleEditButton = () => {
 
 
  handleSubmitButtonClick = (info) => {
+
    console.log(info);
    const newUser = {
-     _id: info.id,
+     id:info.id,
      username: info.newName,
      bio: info.newBio,
      avatar: info.newAvatar
 }
+let userr = {...this.state.user}
+userr.user = newUser
   this.setState({
       showEditForm: !this.state.showEditForm,
-      user: newUser
+      user: userr
     })
 }
 
 
 render(){
-  console.log(this.state.user);
   let user = <UserDetail user = {this.state.user}   onClickLogout= {this.onClickLogout}  handleEditButton = {this.handleEditButton}/>
   let edit = <EditForm handleSubmitButtonClick = {this.handleSubmitButtonClick}/>
     return (
     <React.Fragment>
-      <div className="profile-user-container">
-      { this.state.showEditForm ?  edit : user}
-    </div>
+
+      { this.state.showEditForm ?  <div className="profile-user-container">{edit}</div> : <div className="profile-user-container">{user}</div>}
+
      <div className="profile-container">
      {this.state.user.favorites ? < UserList favor= {this.state.user.favorites} user = {this.state.user}  onClick={this.onClick}/> : null}
     </div>

@@ -7,10 +7,11 @@ state={
 }
   render(){
     let arrayOfArtists = this.props.allArtists.map((artist, index)=>{
+      console.log(index);
       return  <HomeCard index= {index + 1} key={artist.name} artistObj= {artist} image= {artist.image[2]["#text"]} />
 
     })
-    return (<div className="artist-list">{arrayOfArtists}</div>)
+    return (<div className="artist-list-home">{arrayOfArtists}</div>)
   }
 
 }

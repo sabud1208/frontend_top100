@@ -21,10 +21,6 @@ const Navbar = props => {
         Artists
       </Link>
 
-      <Link to="/login">
-        Login
-      </Link>
-
     </nav>
 
 
